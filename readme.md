@@ -81,4 +81,46 @@ source venv/bin/activate
 
 # Instalar dependências
 pip install --upgrade pip
+<<<<<<< HEAD
 pip install dbt-bigquery
+=======
+pip install dbt-bigquery
+```
+
+### Configuração de Credenciais
+Crie o arquivo de perfil do dbt fora da pasta do repositório em `~/.dbt/profiles.yml` e aponte para a sua chave privada JSON do GCP:
+```yaml
+projetoOTG_profile:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      keyfile: /home/seu_usuario/.../sua-chave.json
+      project: seu-projeto-gcp-id
+      dataset: dbt_projetoOTG_dev
+      threads: 4
+      timeout_seconds: 300
+      location: us-east1
+```
+
+### Executando comandos do dbt
+```bash
+# Validar conexões
+dbt debug
+
+# Compilar e rodar todas as transformações Medallion
+dbt run
+
+# Executar a malha de testes de qualidade de dados
+dbt test
+
+# Gerar e iniciar o portal web de documentação
+dbt docs generate
+dbt docs serve
+```
+## 📊 Dashboard Antifraude & Performance
+Aqui está a visualização analítica final desenvolvida no Power BI, estruturada para o time de operações de risco identificar anomalias financeiras e fraudes de afiliados de forma imediata:
+
+![Dashboard Antifraude](./imagens/dashboard.png)
+>>>>>>> 553bcf65a214dd5219179a94953c6200e44957cd
