@@ -97,3 +97,7 @@ dbt test
 dbt docs generate
 dbt docs serve
 ```
+## 📊 Dashboard Antifraude & Performance
+Aqui está a visualização analítica final desenvolvida no Power BI, estruturada para o time de operações de risco identificar anomalias financeiras e fraudes de afiliados de forma imediata:
+
+![Dashboard Antifraude](./imagens/dashboard.png)
