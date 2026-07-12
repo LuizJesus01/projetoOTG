@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_players
+    description: "Dados dos jogadores tabularizados e limpos"
+    columns:
+      - name: player_id
+        tests:
+          - unique
+          - not_null
+      - name: player_email
+        tests:
+          - not_null
+
+  - name: stg_sessions
+    description: "Logs de acessos e metadados de navegação das sessões dos usuários tabularizados e limpos"
+    columns:
+      - name: session_id
+        tests:
+          - unique
+          - not_null
+      - name: player_id
+        tests:
+          - not_null
+      - name: ip_address
+        tests:
+          - not_null
+
+  - name: stg_transactions
+    description: "Histórico de movimentações financeiras executadas dentro do sistema tabulazidados e limpos"
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: player_id
+        tests:
+          - not_null
+      - name: transaction_type
+        tests:
+          - accepted_values:
+              values: ['deposit', 'withdraw', 'bet']
+
+  - name: stg_affiliates
+    description: "Métricas consolidadas de aquisição de tráfego enviadas pelos parceiros tabularizados e limpos"
+    columns:  
+      - name: affiliate_id
+        tests:
+          - not_null
+      - name: player_id
+        tests:
+          - not_null

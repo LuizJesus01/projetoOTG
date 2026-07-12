@@ -1,0 +1,31 @@
+# =========================================================================
+# CREDENCIAIS E SEGURANÇA (CRÍTICO)
+# =========================================================================
+# Bloqueia qualquer arquivo JSON na raiz (onde está sua chave do GCP)
+*.json
+# Caso sua chave tenha outro nome específico, adicione aqui por segurança:
+chave-gcp.json
+
+# =========================================================================
+# AMBIENTE VIRTUAL E PYTHON
+# =========================================================================
+# Ignora a pasta do ambiente virtual do Python para não subir gigabytes de bibliotecas
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# =========================================================================
+# ARTEFATOS E TEMPORÁRIOS DO DBT
+# =========================================================================
+# Pastas geradas pelo dbt ao compilar ou baixar pacotes
+target/
+dbt_packages/
+dbt_modules/
+logs/
+
+# =========================================================================
+# ARQUIVOS DE SISTEMA OPERACIONAL
+# =========================================================================
+.DS_Store
+Thumbs.db

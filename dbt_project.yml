@@ -1,0 +1,36 @@
+name: 'projetoOTG'
+version: '1.0.0'
+config-version: 2
+
+# Perfil de conexão que o dbt buscará no arquivo ~/.dbt/profiles.yml
+profile: 'projetoOTG_profile'
+
+# Configuração dos caminhos das pastas dentro do projeto
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuração de materializações por camada (Medallion Architecture)
+models:
+  projetoOTG:
+    # Camada BRONZE (Staging): Apenas limpeza e tipagem. Sempre views para economizar custo.
+    staging:
+      +materialized: view
+      +schema: staging
+      
+    # Camada SILVER (Intermediate): Cruzamentos e limpeza de chaves de fraude.
+    intermediate:
+      +materialized: table
+      +schema: intermediate
+
+    # Camada GOLD (Marts): Modelos finais de negócios e agregados prontos para o PowerBI.
+    marts:
+      +materialized: table
+      +schema: marts

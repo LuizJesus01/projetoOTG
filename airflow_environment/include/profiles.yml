@@ -1,0 +1,37 @@
+dbt_projeto:
+  outputs:
+    dev:
+      dataset: dbt
+      keyfile: /home/luiz/.dbt/dbtbigquery-490223-b23759123b19.json
+      location: US
+      method: service-account
+      project: dbtbigquery-490223
+      threads: 1
+      type: bigquery
+  target: dev
+
+olist_project:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account  # MUDOU DE oauth PARA service-account
+      project: olist-project-491122 # O ID do seu projeto no GCP
+      dataset: dbt_olist_dev      # O nome do dataset que o dbt criará para este projeto
+      threads: 1
+      keyfile: /home/luiz/.dbt/dbtbigquery-490223-b23759123b19.json # A mesma chave
+      location: US
+
+projetoOTG_profile:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      keyfile: ./chave-gcp.json
+      project: projetootg
+      dataset: dbt_projetoOTG_dev
+      threads: 1
+      timeout_seconds: 300
+      location: us-east1
+

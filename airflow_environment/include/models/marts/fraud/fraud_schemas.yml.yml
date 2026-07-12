@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_fraud_alerts
+    description: "Tabela Fato Gold que consolida todos os alertas e sinalizações de fraude por jogador. Base para o Dashboard de Segurança."
+    columns:
+      - name: player_id
+        description: "Chave primária identificadora do jogador verificado."
+        tests:
+          - unique
+          - not_null
+      - name: flag_suspicious_withdrawal
+        description: "Indicador binário (1 para Sim, 0 para Não) para saques sem o volume mínimo de apostas (indício de lavagem de dinheiro)."
+      - name: flag_multi_accounting
+        description: "Indicador binário que sinaliza o uso excessivo de IPs ou dispositivos diferentes para o mesmo usuário."
+      - name: is_fraudulent_player
+        description: "Flag consolidada que marca se o jogador acionou qualquer um dos alertas de fraude do sistema."
