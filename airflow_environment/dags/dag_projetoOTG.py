@@ -33,10 +33,10 @@ with DAG(
         bucket='projeto0tg',
         source_objects=['landing_zone/players/players.json'],
         destination_project_dataset_table='projetootg.raw_data.players',
-        source_format='CSV',                               # Forçamos texto para ler o array complexo
-        field_delimiter='\x01',                             # Delimitador invisível que engole a linha toda
-        quote_character="",                             # <-- O nome correto do parâmetro oficial do Airflow!
-        allow_quoted_newlines=True,                         # Permite ler o arquivo respeitando as quebras de linha
+        source_format='CSV',      
+        field_delimiter='\x01',         
+        quote_character="",               
+        allow_quoted_newlines=True,             
         write_disposition='WRITE_TRUNCATE',
         gcp_conn_id='google_cloud_default'
     )
@@ -49,7 +49,7 @@ with DAG(
         destination_project_dataset_table='projetootg.raw_data.sessions',
         source_format='CSV',
         field_delimiter='\x01',
-        quote_character="",                             # <-- Aplicado aqui também!
+        quote_character="",                             
         allow_quoted_newlines=True,
         write_disposition='WRITE_TRUNCATE',
         gcp_conn_id='google_cloud_default'

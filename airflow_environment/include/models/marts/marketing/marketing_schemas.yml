@@ -8,7 +8,17 @@ models:
         description: "Chave primária do parceiro afiliado analisado."
         tests:
           - not_null
+      - name: country_code
+        description: "Código do país de origem do tráfego capturado (padronizado no formato ISO)."
+      - name: total_clicks
+        description: "Volume total de cliques gerados nos links de indicação do afiliado."
+      - name: total_registrations
+        description: "Quantidade total de novos cadastros de jogadores gerados a partir da indicação do afiliado."
+      - name: total_ftd
+        description: "Total de First Time Deposits (FTD): Contagem de novos jogadores indicados que realizaram seu primeiro depósito na plataforma."
       - name: total_cpa_payout
         description: "Valor total de comissão em CPA gerado e acumulado pelo afiliado."
       - name: total_fraudulent_players_brought
         description: "Métrica de qualidade: quantidade total de usuários indicados por este afiliado que foram marcados como fraudulentos."
+      - name: click_to_reg_conversion_rate
+        description: "Taxa de conversão de cliques em registros (calculada como total de registros dividido pelo total de cliques)."

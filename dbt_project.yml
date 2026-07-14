@@ -6,7 +6,7 @@ config-version: 2
 profile: 'projetoOTG_profile'
 
 # Configuração dos caminhos das pastas dentro do projeto
-model-paths: ["models"]
+model-paths: ["airflow_environment/include/models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]

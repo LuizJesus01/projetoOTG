@@ -9,6 +9,22 @@ models:
         tests:
           - unique
           - not_null
+      - name: player_email
+        description: "Endereço de e-mail cadastrado e verificado do jogador."
+      - name: player_city
+        description: "Cidade de residência informada pelo jogador."
+      - name: account_created_at
+        description: "Data e hora exata de criação da conta do jogador."
+      - name: total_deposited_amount
+        description: "Valor monetário total acumulado de todos os depósitos realizados pelo jogador."
+      - name: total_withdrawn_amount
+        description: "Valor monetário total acumulado de todos os saques efetuados pelo jogador."
+      - name: total_bet_amount
+        description: "Valor monetário total apostado pelo jogador ao longo do seu ciclo de vida."
+      - name: distinct_ips_count
+        description: "Quantidade de endereços de IP distintos utilizados pelo jogador para acessar a plataforma."
+      - name: distinct_devices_count
+        description: "Quantidade de dispositivos físicos (aparelhos) diferentes detectados nos acessos do jogador."
       - name: flag_suspicious_withdrawal
         description: "Indicador binário (1 para Sim, 0 para Não) para saques sem o volume mínimo de apostas (indício de lavagem de dinheiro)."
       - name: flag_multi_accounting

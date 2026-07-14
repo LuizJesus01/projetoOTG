@@ -5,48 +5,81 @@ models:
     description: "Dados dos jogadores tabularizados e limpos"
     columns:
       - name: player_id
+        description: "Chave primária exclusiva de identificação do jogador."
         tests:
           - unique
           - not_null
       - name: player_email
+        description: "Endereço de e-mail eletrônico do usuário cadastrado."
         tests:
           - not_null
+      - name: player_city
+        description: "Cidade informada pelo usuário no momento da criação da conta."
+      - name: account_created_at
+        description: "Data e hora exata em que o cadastro foi concluído no sistema."
 
   - name: stg_sessions
     description: "Logs de acessos e metadados de navegação das sessões dos usuários tabularizados e limpos"
     columns:
       - name: session_id
+        description: "Identificador único da sessão de acesso."
         tests:
           - unique
           - not_null
       - name: player_id
+        description: "Chave de ligação com a tabela de jogadores."
         tests:
           - not_null
       - name: ip_address
+        description: "Endereço IP público utilizado para realizar o acesso."
         tests:
           - not_null
+      - name: device_type
+        description: "Tipo de dispositivo eletrônico utilizado para navegar na plataforma."
+      - name: session_at
+        description: "Data e hora exata em que o login ou evento de sessão ocorreu."
 
   - name: stg_transactions
     description: "Histórico de movimentações financeiras executadas dentro do sistema tabulazidados e limpos"
     columns:
       - name: transaction_id
+        description: "Identificador único da transação financeira."
         tests:
           - unique
           - not_null
       - name: player_id
+        description: "Chave de ligação para identificar o autor da movimentação."
         tests:
           - not_null
       - name: transaction_type
+        description: "Tipo da operação financeira realizada."
         tests:
           - accepted_values:
+              arguments:
               values: ['deposit', 'withdraw', 'bet']
+      - name: transaction_amount
+        description: "Valor monetário total envolvido na transação."
+      - name: transaction_at
+        description: "Data e hora em que a transação financeira foi computada."
 
   - name: stg_affiliates
     description: "Métricas consolidadas de aquisição de tráfego enviadas pelos parceiros tabularizados e limpos"
     columns:  
       - name: affiliate_id
+        description: "Identificador único do parceiro afiliado."
         tests:
           - not_null
       - name: player_id
+        description: "Chave de ligação com o jogador que realizou o cadastro via link."
         tests:
           - not_null
+      - name: country_code
+        description: "Código do país de origem do tráfego capturado."
+      - name: total_clicks
+        description: "Volume de cliques gerados no link de indicação do afiliado."
+      - name: total_registrations
+        description: "Indicador binário ou contagem de registros originados."
+      - name: first_time_deposit
+        description: "First Time Deposit: Indicador binário se o usuário fez seu primeiro depósito (1 para Sim, 0 para Não)."
+      - name: cpa_amount
+        description: "Valor da comissão (CPA) a ser pago ao afiliado pela conversão."

@@ -9,10 +9,22 @@ models:
         tests:
           - unique
           - not_null
+      - name: player_email
+        description: "Endereço de e-mail cadastrado e verificado do jogador."
+      - name: player_city
+        description: "Cidade de residência informada pelo jogador no momento do cadastro."
+      - name: account_created_at
+        description: "Data e hora exata em que a conta do jogador foi criada."
+      - name: total_deposits_count
+        description: "Quantidade total de depósitos financeiros realizados pelo jogador."
       - name: total_deposited_amount
         description: "Valor total acumulado de depósitos realizados pelo jogador."
+      - name: total_withdrawals_count
+        description: "Quantidade total de saques financeiros solicitados pelo jogador."
       - name: total_withdrawn_amount
         description: "Valor total acumulado de saques efetuados pelo jogador."
+      - name: total_bets_count
+        description: "Quantidade total de apostas ou jogadas registradas pelo usuário na plataforma."
       - name: total_bet_amount
         description: "Valor total acumulado de dinheiro apostado em jogos."
 
@@ -28,3 +40,5 @@ models:
         description: "Quantidade de endereços de IP distintos utilizados pelo jogador para acessar a plataforma."
       - name: distinct_devices_count
         description: "Quantidade de aparelhos/dispositivos diferentes utilizados pelo jogador."
+      - name: total_sessions_count
+        description: "Quantidade total de sessões de acessos ou logins realizados pelo jogador na plataforma."
