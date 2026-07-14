@@ -28,7 +28,7 @@ projetoOTG_profile:
     dev:
       type: bigquery
       method: service-account
-      keyfile: ./chave-gcp.json
+      keyfile: "{{ env_var('DBT_KEYFILE_PATH', '/usr/local/airflow/include/chave-gcp.json') }}"
       project: projetootg
       dataset: dbt_projetoOTG_dev
       threads: 1

@@ -5,6 +5,8 @@
 *.json
 # Caso sua chave tenha outro nome específico, adicione aqui por segurança:
 chave-gcp.json
+include/*.json
+airflow_environment/include/*.json
 
 # =========================================================================
 # AMBIENTE VIRTUAL E PYTHON
